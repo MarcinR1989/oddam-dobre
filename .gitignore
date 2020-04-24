@@ -1,0 +1,9 @@
+.idea
+.vscode
+node_modules
+package-lock.json
+project
+venv
+/portfolio_lab/local_settings.py
+/db.sqlite3
+/QUESTIONS

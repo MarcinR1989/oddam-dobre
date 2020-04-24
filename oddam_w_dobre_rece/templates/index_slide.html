@@ -1,0 +1,39 @@
+{% if data_id == '1' %}
+    <div class="help--slides active" data-id="{{ data_id }}">
+{% else %}
+    <div class="help--slides" data-id="{{ data_id }}">
+{% endif %}
+
+<p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym
+    się
+    zajmują, komu pomagają i czego potrzebują.</p>
+
+<ul class="help--slides-items">
+    {% for institution in foundations %}
+        <li>
+            <div class="col">
+                <div class="title">Fundacja "{{ institution.name }}"</div>
+                <div class="subtitle">Cel i misja: {{ institution.description }}.</div>
+            </div>
+
+            <div class="col">
+                <div class="text">
+                    {% for category in institution.categories.all %}
+                        {{ category }}
+                        {% if not forloop.last %}
+                            ,
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+<!-- Pagination
+<ul class="help--slides-pagination">
+  <li><a href="#" class="btn btn--small btn--without-border active" data-page="1">1</a></li>
+  <li><a href="#" class="btn btn--small btn--without-border" data-page="2">2</a></li>
+  <li><a href="#" class="btn btn--small btn--without-border" data-page="3">3</a></li>
+</ul>
+-->
+</div>
