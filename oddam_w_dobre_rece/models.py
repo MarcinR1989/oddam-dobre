@@ -41,8 +41,8 @@ class Institution(models.Model):
 
 class Donation(models.Model):
     quantity = models.PositiveIntegerField()
-    categories = models.ManyToManyField(Category)
-    institution = models.ForeignKey(Institution, on_delete=models.CASCADE)
+    categories = models.ManyToManyField(Category, blank=True)
+    institution = models.ForeignKey(Institution, on_delete=models.CASCADE, blank=True)
     address = models.CharField(max_length=128, validators=[validate_street])
     phone_number = models.CharField(max_length=32, validators=[validate_phone_number])
     city = models.CharField(max_length=64)

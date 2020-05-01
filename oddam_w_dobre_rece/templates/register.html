@@ -9,35 +9,17 @@
 
     <section class="login-page">
 
-        {#        <form action="." method="post">#}
-        {#            {{ user_form }}#}
-        {#            {% csrf_token %}#}
-        {#            <p><input type="submit" value="Utwórz konto"></p>#}
-        {#        </form>#}
-
         <h2>Załóż konto</h2>
         <form method="post">
             {% csrf_token %}
-
-            <div class="form-group">
-                {{ user_form.first_name }}
-{#                <input type="text" name="first_name" placeholder="Imię"/>#}
-            </div>
-            <div class="form-group">
-                <input type="text" name="last_name" placeholder="Nazwisko"/>
-            </div>
-            <div class="form-group">
-                <input type="email" name="username" placeholder="Email"/>
-            </div>
-            <div class="form-group">
-                <input type="password" name="password1" placeholder="Hasło"/>
-            </div>
-            <div class="form-group">
-                <input type="password" name="password2" placeholder="Powtórz hasło"/>
-            </div>
-
+            {% for element in form %}
+                <div class="form-group">
+                    {{ element }}
+                    {{ element.errors }}
+                </div>
+            {% endfor %}
             <div class="form-group form-group--buttons">
-                <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
+                <a class="btn btn--without-border" href={% url 'login' %}>Zaloguj się</a>
                 <button class="btn" type="submit">Załóż konto</button>
             </div>
         </form>

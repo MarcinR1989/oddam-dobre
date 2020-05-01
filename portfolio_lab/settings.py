@@ -123,6 +123,9 @@ STATICFILES_DIRS = [
 
 AUTH_USER_MODEL = 'oddam_w_dobre_rece.CustomUser'
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 
 # RUNSERVER TRZEBA ODPALAĆ Z PONIŻSZĄ KOMENDĄ \|/ \|/
 # python manage.py runserver --settings=portfolio_lab.local_settings
